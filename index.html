@@ -18,32 +18,35 @@
         <div id="button-container">
 
             <div class="row">
-                <button id="number7">7</button>
-                <button id="number8">8</button>
-                <button id="number9">9</button>
-                <button id="btn-divide">/</button>
+                <button id="number7" onclick="addExpression(7)">7</button>
+                <button id="number8" onclick="addExpression(8)">8</button>
+                <button id="number9" onclick="addExpression(9)">9</button>
+                <button id="btn-divide" onclick="addExpression('/')">/</button>
             </div>
             <div class="row">
-                <button id="number4">4</button>
-                <button id="number5">5</button>
-                <button id="number6">6</button>
-                <button id="btn-multiply">x</button>
+                <button id="number4" onclick="addExpression(4)">4</button>
+                <button id="number5" onclick="addExpression(5)">5</button>
+                <button id="number6" onclick="addExpression(6)">6</button>
+                <button id="btn-multiply" onclick="addExpression('x')">x</button>
             </div>
             <div class="row">
-                <button id="number1">1</button>
-                <button id="number2">2</button>
-                <button id="number3">3</button>
-                <button id="btn-substract">-</button>
+                <button id="number1" onclick="addExpression(1)">1</button>
+                <button id="number2" onclick="addExpression(2)">2</button>
+                <button id="number3" onclick="addExpression(3)">3</button>
+                <button id="btn-substract" onclick="addExpression('-')">-</button>
             </div>
             <div class="row">
-                <button id="number0">0</button>
-                <button id="btn-result">=</button>
-                <button id="btn-addup">+</button>
+                <button id="btn-delete" onclick="deleteScreen()">C</button>
+                <button id="number0" onclick="addExpression(0)">0</button>
+                <button id="btn-result" onclick="getResult()">=</button>
+                <button id="btn-addup" onclick="addExpression('+')">+</button>
             </div>
 
         </div>
 
     </div>
+
+    <script src="./main.js"></script>
 
 </body>
 </html>
