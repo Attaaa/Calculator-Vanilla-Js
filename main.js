@@ -5,22 +5,34 @@ function addExpression(token) {
     if (screenContainer.innerHTML == 0) {
         screenContainer.innerHTML = '';
     }
-    let lastToken;
-    if (mathExpression.length > 0 && typeof token === 'number') {
-        const lastIndex = mathExpression.length - 1;
-        lastToken = mathExpression[lastIndex];
-        if (typeof lastToken === 'number') {
-            screenContainer.innerHTML += token;
-            token = lastToken + '' + token;
-            token = Number(token);
-            mathExpression[lastIndex] = token;
-        } else {
-            screenContainer.innerHTML += ' ' + token;
+
+    if (mathExpression.length === 0) {
+        if (typeof token === 'number') {
+            screenContainer.innerHTML = token;
             mathExpression.push(token);
+        } else {
+            screenContainer.innerHTML = 0;
         }
     } else {
-        screenContainer.innerHTML += ' ' + token;
-        mathExpression.push(token);
+        let lastToken = mathExpression[mathExpression.length - 1];
+        if (typeof token === 'number') {
+            if (typeof lastToken === 'number') {
+                screenContainer.innerHTML += token;
+                token = Number(lastToken + '' + token);
+                mathExpression[mathExpression.length - 1] = token;
+            } else {
+                screenContainer.innerHTML += ' ' + token;
+                mathExpression.push(token);
+            }
+        } else {
+            if (typeof lastToken === 'string') {
+                screenContainer.innerHTML  = screenContainer.innerHTML.slice(0, screenContainer.innerHTML.length - 1) + token;
+                mathExpression[mathExpression.length-1] = token;
+            } else {
+                screenContainer.innerHTML += ' ' + token;
+                mathExpression.push(token);
+            }
+        }
     }
 }
 
